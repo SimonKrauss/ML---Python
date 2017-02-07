@@ -1,0 +1,11 @@
+# Experiment with beautiful soup!
+#1. Print all hyperlinks appearing your article (links to other websites or wikipedia pages)
+#2. Print a list with Wikipedia articles referenced from your chosen article
+from BeautifulSoup import BeautifulSoup
+import urllib2
+import re
+
+html_page = urllib2.urlopen('https://en.wikipedia.org/wiki/Machine_learning')
+soup = BeautifulSoup(html_page)
+for link in soup.findAll('a'):
+    print link.get('href')
